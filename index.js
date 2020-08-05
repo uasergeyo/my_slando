@@ -12,7 +12,7 @@ app.use(express.static('public'));
 const schema = require('./graph_ql/schema.js');
 const {root} = require('./graph_ql/resolvers.js');
 var path = require('path');
-
+const port = process.env.PORT || 4000;
 
 
 app.post('/upload/:folder', (req, res) => {
@@ -40,5 +40,5 @@ app.use('/graphql', express_graphql( (req, res) => ({
     graphiql: true,
 })));
 
-app.listen(4000, console.log("Listen ### 4000"))
+app.listen(port, console.log("Listen ### 4000"))
 
